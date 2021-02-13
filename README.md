@@ -1,2 +1,2 @@
 # Nitrogen
-A few useful functions for calculating nutrient requirements for lawns
+A few useful functions for calculating nutrient requirements for lawns.
