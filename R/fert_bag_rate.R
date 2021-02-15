@@ -12,16 +12,9 @@
 #' @examples
 #' fert_bag_rate(5000,24, 25, 4, 15)
 fert_bag_rate <- function(sqft, n, p, k, pounds) {
-  N <- nutrient_per_1000(sqft = sqft,
-                         nutrient_percent = n,
-                         pounds = pounds)
-  P <- nutrient_per_1000(sqft = sqft,
-                         nutrient_percent = p,
-                         pounds = pounds)
-  K <- nutrient_per_1000(sqft = sqft,
-                         nutrient_percent = k,
-                         pounds = pounds)
-  list(Nitrogen = N,
-       Phosphorus = P,
-       Potassium = K)
+  npk <- c(n, p, k)
+  output <- nutrient_per_1000(sqft = sqft, nutrient_percent = npk, pounds = pounds)
+  output <- round(output, 2)
+  output <- setNames(output, c("Nitrogen", "Phosphorus", "Potassium"))
+  as.list(output)
 }
